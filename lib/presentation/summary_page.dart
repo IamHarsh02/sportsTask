@@ -10,9 +10,9 @@ class SummaryPage extends StatelessWidget {
     return GetBuilder<HomeController>(builder: (ct) {
       return Scaffold(
         appBar: AppBar(
-          title: Text("Match Highlights"),
+          title: const Text("Match Highlights"),
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.pop(context); // Handles back navigation
             },
@@ -39,7 +39,7 @@ Widget _buildSectionTitle(String title) {
     padding: const EdgeInsets.symmetric(vertical: 10),
     child: Text(
       title,
-      style: TextStyle(
+      style: const TextStyle(
           fontSize: 20, fontWeight: FontWeight.bold, color: Colors.orange),
     ),
   );
@@ -53,8 +53,8 @@ List<Widget> _buildNewsCards(List<String>? news) {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: ListTile(
-            leading: Icon(Icons.sports_cricket, color: Colors.blue),
-            title: Text(update, style: TextStyle(fontSize: 16)),
+            leading: const Icon(Icons.sports_cricket, color: Colors.blue),
+            title: Text(update, style: const TextStyle(fontSize: 16)),
           ),
         ),
       )

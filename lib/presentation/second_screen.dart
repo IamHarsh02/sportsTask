@@ -15,11 +15,11 @@ class SecondScreen extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Day 2 Cricket "),
+          title: const Text("Day 2 Cricket "),
           leading: Builder(
             builder: (context) {
               return IconButton(
-                icon: Icon(Icons.menu), // Drawer Menu Icon
+                icon: const Icon(Icons.menu), // Drawer Menu Icon
                 onPressed: () {
                   Scaffold.of(context).openDrawer(); // Opens Drawer
                 },
@@ -31,7 +31,7 @@ class SecondScreen extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              DrawerHeader(
+              const DrawerHeader(
                 decoration: BoxDecoration(color: Colors.blue),
                 child: Text(
                   "Match Days",
@@ -39,18 +39,18 @@ class SecondScreen extends StatelessWidget {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.calendar_today),
-                title: Text("Day 1"),
+                leading: const Icon(Icons.calendar_today),
+                title: const Text("Day 1"),
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
                   );
                 },
               ),
               ListTile(
-                leading: Icon(Icons.calendar_today),
-                title: Text("Day 2"),
+                leading: const Icon(Icons.calendar_today),
+                title: const Text("Day 2"),
                 onTap: () {
                   Get.toNamed(Constant.secound_page);
                 },
@@ -59,7 +59,7 @@ class SecondScreen extends StatelessWidget {
           ),
         ),
         body: ct.isLoading
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : Column(
                 children: [
                   Expanded(
@@ -76,64 +76,67 @@ class SecondScreen extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Icon(Icons.sports_cricket,
+                                  const Icon(Icons.sports_cricket,
                                       color: Colors.blue),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Text(
                                       "${ct.dataModal2?.matchdetail?.match?.number} - ${ct.dataModal2?.matchdetail?.match?.league}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
-                              SizedBox(height: 10),
-                              Text("South Africa  vs Pakistan",
+                              const SizedBox(height: 10),
+                              const Text("South Africa  vs Pakistan",
                                   style: TextStyle(fontSize: 16)),
                               InkWell(
                                 onTap: () {
                                   Get.toNamed(Constant.summary);
                                 },
-                                child: Text("Click Here For Highlights!",
+                                child: const Text("Click Here For Highlights!",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold)),
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  Icon(Icons.location_on, color: Colors.red),
-                                  SizedBox(width: 5),
+                                  const Icon(Icons.location_on,
+                                      color: Colors.red),
+                                  const SizedBox(width: 5),
                                   Text(
                                       "Venue: ${ct.dataModal2?.matchdetail?.venue?.name}"),
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.calendar_today,
+                                  const Icon(Icons.calendar_today,
                                       color: Colors.green),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(
                                       "Date: ${ct.dataModal2?.matchdetail?.match?.date} at ${ct.dataModal2?.matchdetail?.match?.time}"),
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.wb_sunny, color: Colors.orange),
-                                  SizedBox(width: 5),
+                                  const Icon(Icons.wb_sunny,
+                                      color: Colors.orange),
+                                  const SizedBox(width: 5),
                                   Text(
                                       "Weather: ${ct.dataModal2?.matchdetail?.weather}"),
                                 ],
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  Icon(Icons.emoji_events, color: Colors.amber),
-                                  SizedBox(width: 5),
+                                  const Icon(Icons.emoji_events,
+                                      color: Colors.amber),
+                                  const SizedBox(width: 5),
                                   SizedBox(
                                     width: Get.width / 1.5,
                                     child: Text(
                                         "Result: ${ct.dataModal2?.matchdetail?.result}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -141,11 +144,12 @@ class SecondScreen extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.person, color: Colors.purple),
-                                  SizedBox(width: 5),
+                                  const Icon(Icons.person,
+                                      color: Colors.purple),
+                                  const SizedBox(width: 5),
                                   Text(
                                       "Man of the Match: ${ct.dataModal2?.matchdetail?.playerMatch}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500)),
                                 ],
@@ -171,15 +175,16 @@ class SecondScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                                 "Batting Team: ${inning.battingteam}",
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 18,
                                                     fontWeight:
                                                         FontWeight.bold)),
                                             Text(
                                                 "Total: ${inning.total} / ${inning.wickets} wickets in ${inning.overs} Overs",
-                                                style: TextStyle(fontSize: 16)),
-                                            SizedBox(height: 10),
-                                            Text("Batting",
+                                                style: const TextStyle(
+                                                    fontSize: 16)),
+                                            const SizedBox(height: 10),
+                                            const Text("Batting",
                                                 style: TextStyle(
                                                     fontSize: 18,
                                                     fontWeight:
@@ -188,7 +193,7 @@ class SecondScreen extends StatelessWidget {
                                               scrollDirection: Axis.horizontal,
                                               child: DataTable(
                                                 columnSpacing: 20,
-                                                columns: [
+                                                columns: const [
                                                   DataColumn(
                                                       label: Text("Batsman")),
                                                   DataColumn(
@@ -206,7 +211,7 @@ class SecondScreen extends StatelessWidget {
                                                       inning.batsmen![index];
                                                   return DataRow(cells: [
                                                     DataCell(IconButton(
-                                                      icon: Icon(
+                                                      icon: const Icon(
                                                           Icons.remove_red_eye),
                                                       onPressed: () {
                                                         showModalBottomSheet(
@@ -214,7 +219,7 @@ class SecondScreen extends StatelessWidget {
                                                             isScrollControlled:
                                                                 true, // Allow full-screen scrollable sheet
                                                             shape:
-                                                                RoundedRectangleBorder(
+                                                                const RoundedRectangleBorder(
                                                               borderRadius:
                                                                   BorderRadius.vertical(
                                                                       top: Radius
@@ -266,8 +271,8 @@ class SecondScreen extends StatelessWidget {
                                                                         children: [
                                                                           Text(
                                                                               playerData!.nameFull ?? "",
-                                                                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                                                                          SizedBox(
+                                                                              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                                                                          const SizedBox(
                                                                               height: 5),
                                                                           Text(
                                                                               "Batting Style: ${playerData.batting?.style}"),
@@ -275,18 +280,18 @@ class SecondScreen extends StatelessWidget {
                                                                               "Bowling Style: ${playerData.bowling?.style}"),
                                                                           if (playerData.iskeeper ==
                                                                               true)
-                                                                            Text("🏏 WC",
+                                                                            const Text("🏏 WC",
                                                                                 style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold))
                                                                         ],
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                       height:
                                                                           20),
 
                                                                   // Batting Stats
-                                                                  Text(
+                                                                  const Text(
                                                                       "Batting Stats",
                                                                       style: TextStyle(
                                                                           fontSize:
@@ -318,12 +323,12 @@ class SecondScreen extends StatelessWidget {
                                                                       Colors
                                                                           .blue),
 
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                       height:
                                                                           20),
 
                                                                   // Bowling Stats
-                                                                  Text(
+                                                                  const Text(
                                                                       "Bowling Stats",
                                                                       style: TextStyle(
                                                                           fontSize:
@@ -373,8 +378,8 @@ class SecondScreen extends StatelessWidget {
                                                 }),
                                               ),
                                             ),
-                                            SizedBox(height: 10),
-                                            Text("Bowling",
+                                            const SizedBox(height: 10),
+                                            const Text("Bowling",
                                                 style: TextStyle(
                                                     fontSize: 18,
                                                     fontWeight:
@@ -383,7 +388,7 @@ class SecondScreen extends StatelessWidget {
                                               scrollDirection: Axis.horizontal,
                                               child: DataTable(
                                                 columnSpacing: 20,
-                                                columns: [
+                                                columns: const [
                                                   DataColumn(
                                                       label: Text("Bowler")),
                                                   DataColumn(
@@ -404,16 +409,15 @@ class SecondScreen extends StatelessWidget {
                                                       inning.bowlers![index];
                                                   return DataRow(cells: [
                                                     DataCell(IconButton(
-                                                      icon: Icon(
+                                                      icon: const Icon(
                                                           Icons.remove_red_eye),
                                                       onPressed: () {
-                                                        print(bowler.bowler);
                                                         showModalBottomSheet(
                                                             context: context,
                                                             isScrollControlled:
                                                                 true, // Allow full-screen scrollable sheet
                                                             shape:
-                                                                RoundedRectangleBorder(
+                                                                const RoundedRectangleBorder(
                                                               borderRadius:
                                                                   BorderRadius.vertical(
                                                                       top: Radius
@@ -465,8 +469,8 @@ class SecondScreen extends StatelessWidget {
                                                                         children: [
                                                                           Text(
                                                                               playerData!.nameFull ?? "",
-                                                                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                                                                          SizedBox(
+                                                                              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                                                                          const SizedBox(
                                                                               height: 5),
                                                                           Text(
                                                                               "Batting Style: ${playerData.batting?.style}"),
@@ -474,18 +478,18 @@ class SecondScreen extends StatelessWidget {
                                                                               "Bowling Style: ${playerData.bowling?.style}"),
                                                                           if (playerData.iskeeper ==
                                                                               true)
-                                                                            Text("🏏 WC",
+                                                                            const Text("🏏 WC",
                                                                                 style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold))
                                                                         ],
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                       height:
                                                                           20),
 
                                                                   // Batting Stats
-                                                                  Text(
+                                                                  const Text(
                                                                       "Batting Stats",
                                                                       style: TextStyle(
                                                                           fontSize:
@@ -517,12 +521,12 @@ class SecondScreen extends StatelessWidget {
                                                                       Colors
                                                                           .blue),
 
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                       height:
                                                                           20),
 
                                                                   // Bowling Stats
-                                                                  Text(
+                                                                  const Text(
                                                                       "Bowling Stats",
                                                                       style: TextStyle(
                                                                           fontSize:
@@ -615,14 +619,14 @@ Widget _buildStatBar(String label, double value, double maxValue, Color color) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("$label: ${value.toStringAsFixed(2)}",
-            style: TextStyle(fontSize: 16)),
-        SizedBox(height: 5),
+            style: const TextStyle(fontSize: 16)),
+        const SizedBox(height: 5),
         LinearPercentIndicator(
           lineHeight: 12.0,
           percent: percent,
           backgroundColor: Colors.grey.shade300,
           progressColor: color,
-          barRadius: Radius.circular(10),
+          barRadius: const Radius.circular(10),
         ),
       ],
     ),

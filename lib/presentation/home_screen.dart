@@ -16,11 +16,11 @@ class HomeScreen extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Day 1 Cricket "),
+          title: const Text("Day 1 Cricket "),
           leading: Builder(
             builder: (context) {
               return IconButton(
-                icon: Icon(Icons.menu), // Drawer Menu Icon
+                icon: const Icon(Icons.menu), // Drawer Menu Icon
                 onPressed: () {
                   Scaffold.of(context).openDrawer(); // Opens Drawer
                 },
@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              DrawerHeader(
+              const DrawerHeader(
                 decoration: BoxDecoration(color: Colors.blue),
                 child: Text(
                   "Match Days",
@@ -40,18 +40,18 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.calendar_today),
-                title: Text("Day 1"),
+                leading: const Icon(Icons.calendar_today),
+                title: const Text("Day 1"),
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
                   );
                 },
               ),
               ListTile(
-                leading: Icon(Icons.calendar_today),
-                title: Text("Day 2"),
+                leading: const Icon(Icons.calendar_today),
+                title: const Text("Day 2"),
                 onTap: () {
                   ct.fetchSecondScreenData();
                   Get.toNamed(Constant.secound_page);
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         body: ct.isLoading
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : Column(
                 children: [
                   Expanded(
@@ -78,64 +78,67 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Icon(Icons.sports_cricket,
+                                  const Icon(Icons.sports_cricket,
                                       color: Colors.blue),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Text(
                                       "${ct.dataModal?.matchdetail?.match?.number} - ${ct.dataModal?.matchdetail?.match?.league}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
-                              SizedBox(height: 10),
-                              Text("India vs New Zeeland",
+                              const SizedBox(height: 10),
+                              const Text("India vs New Zeeland",
                                   style: TextStyle(fontSize: 16)),
                               InkWell(
                                 onTap: () {
                                   Get.toNamed(Constant.summary);
                                 },
-                                child: Text("Click Here For Highlights!",
+                                child: const Text("Click Here For Highlights!",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold)),
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  Icon(Icons.location_on, color: Colors.red),
-                                  SizedBox(width: 5),
+                                  const Icon(Icons.location_on,
+                                      color: Colors.red),
+                                  const SizedBox(width: 5),
                                   Text(
                                       "Venue: ${ct.dataModal?.matchdetail?.venue?.name}"),
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.calendar_today,
+                                  const Icon(Icons.calendar_today,
                                       color: Colors.green),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   Text(
                                       "Date: ${ct.dataModal?.matchdetail?.match?.date} at ${ct.dataModal?.matchdetail?.match?.time}"),
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.wb_sunny, color: Colors.orange),
-                                  SizedBox(width: 5),
+                                  const Icon(Icons.wb_sunny,
+                                      color: Colors.orange),
+                                  const SizedBox(width: 5),
                                   Text(
                                       "Weather: ${ct.dataModal?.matchdetail?.weather}"),
                                 ],
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  Icon(Icons.emoji_events, color: Colors.amber),
-                                  SizedBox(width: 5),
+                                  const Icon(Icons.emoji_events,
+                                      color: Colors.amber),
+                                  const SizedBox(width: 5),
                                   SizedBox(
                                     width: Get.width / 1.5,
                                     child: Text(
                                         "Result: ${ct.dataModal?.matchdetail?.result}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -143,11 +146,12 @@ class HomeScreen extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.person, color: Colors.purple),
-                                  SizedBox(width: 5),
+                                  const Icon(Icons.person,
+                                      color: Colors.purple),
+                                  const SizedBox(width: 5),
                                   Text(
                                       "Man of the Match: ${ct.dataModal?.matchdetail?.playerMatch}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500)),
                                 ],
@@ -173,15 +177,16 @@ class HomeScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                                 "Batting Team: ${inning.battingteam}",
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 18,
                                                     fontWeight:
                                                         FontWeight.bold)),
                                             Text(
                                                 "Total: ${inning.total} / ${inning.wickets} wickets in ${inning.overs} Overs",
-                                                style: TextStyle(fontSize: 16)),
-                                            SizedBox(height: 10),
-                                            Text("Batting",
+                                                style: const TextStyle(
+                                                    fontSize: 16)),
+                                            const SizedBox(height: 10),
+                                            const Text("Batting",
                                                 style: TextStyle(
                                                     fontSize: 18,
                                                     fontWeight:
@@ -191,15 +196,18 @@ class HomeScreen extends StatelessWidget {
                                               child: DataTable(
                                                 columnSpacing: 20,
                                                 columns: [
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Batsman")),
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Runs")),
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Balls")),
-                                                  DataColumn(label: Text("4s")),
-                                                  DataColumn(label: Text("6s")),
-                                                  DataColumn(label: Text("SR")),
+                                                  const DataColumn(
+                                                      label: Text("4s")),
+                                                  const DataColumn(
+                                                      label: Text("6s")),
+                                                  const DataColumn(
+                                                      label: Text("SR")),
                                                 ],
                                                 rows: List.generate(
                                                     inning.batsmen!.length,
@@ -208,7 +216,7 @@ class HomeScreen extends StatelessWidget {
                                                       inning.batsmen![index];
                                                   return DataRow(cells: [
                                                     DataCell(IconButton(
-                                                      icon: Icon(
+                                                      icon: const Icon(
                                                           Icons.remove_red_eye),
                                                       onPressed: () {
                                                         showModalBottomSheet(
@@ -216,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                                                             isScrollControlled:
                                                                 true, // Allow full-screen scrollable sheet
                                                             shape:
-                                                                RoundedRectangleBorder(
+                                                                const RoundedRectangleBorder(
                                                               borderRadius:
                                                                   BorderRadius.vertical(
                                                                       top: Radius
@@ -268,8 +276,8 @@ class HomeScreen extends StatelessWidget {
                                                                         children: [
                                                                           Text(
                                                                               playerData!.nameFull ?? "",
-                                                                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                                                                          SizedBox(
+                                                                              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                                                                          const SizedBox(
                                                                               height: 5),
                                                                           Text(
                                                                               "Batting Style: ${playerData.batting?.style}"),
@@ -277,18 +285,18 @@ class HomeScreen extends StatelessWidget {
                                                                               "Bowling Style: ${playerData.bowling?.style}"),
                                                                           if (playerData.iskeeper ==
                                                                               true)
-                                                                            Text("🏏 WC",
+                                                                            const Text("🏏 WC",
                                                                                 style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold))
                                                                         ],
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                       height:
                                                                           20),
 
                                                                   // Batting Stats
-                                                                  Text(
+                                                                  const Text(
                                                                       "Batting Stats",
                                                                       style: TextStyle(
                                                                           fontSize:
@@ -320,12 +328,12 @@ class HomeScreen extends StatelessWidget {
                                                                       Colors
                                                                           .blue),
 
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                       height:
                                                                           20),
 
                                                                   // Bowling Stats
-                                                                  Text(
+                                                                  const Text(
                                                                       "Bowling Stats",
                                                                       style: TextStyle(
                                                                           fontSize:
@@ -375,8 +383,8 @@ class HomeScreen extends StatelessWidget {
                                                 }),
                                               ),
                                             ),
-                                            SizedBox(height: 10),
-                                            Text("Bowling",
+                                            const SizedBox(height: 10),
+                                            const Text("Bowling",
                                                 style: TextStyle(
                                                     fontSize: 18,
                                                     fontWeight:
@@ -386,17 +394,17 @@ class HomeScreen extends StatelessWidget {
                                               child: DataTable(
                                                 columnSpacing: 20,
                                                 columns: [
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Bowler")),
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Overs")),
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Maidens")),
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Runs")),
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Wickets")),
-                                                  DataColumn(
+                                                  const DataColumn(
                                                       label: Text("Econ")),
                                                 ],
                                                 rows: List.generate(
@@ -406,7 +414,7 @@ class HomeScreen extends StatelessWidget {
                                                       inning.bowlers![index];
                                                   return DataRow(cells: [
                                                     DataCell(IconButton(
-                                                      icon: Icon(
+                                                      icon: const Icon(
                                                           Icons.remove_red_eye),
                                                       onPressed: () {
                                                         print(bowler.bowler);
@@ -415,7 +423,7 @@ class HomeScreen extends StatelessWidget {
                                                             isScrollControlled:
                                                                 true, // Allow full-screen scrollable sheet
                                                             shape:
-                                                                RoundedRectangleBorder(
+                                                                const RoundedRectangleBorder(
                                                               borderRadius:
                                                                   BorderRadius.vertical(
                                                                       top: Radius
@@ -467,8 +475,8 @@ class HomeScreen extends StatelessWidget {
                                                                         children: [
                                                                           Text(
                                                                               playerData!.nameFull ?? "",
-                                                                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                                                                          SizedBox(
+                                                                              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                                                                          const SizedBox(
                                                                               height: 5),
                                                                           Text(
                                                                               "Batting Style: ${playerData.batting?.style}"),
@@ -476,18 +484,18 @@ class HomeScreen extends StatelessWidget {
                                                                               "Bowling Style: ${playerData.bowling?.style}"),
                                                                           if (playerData.iskeeper ==
                                                                               true)
-                                                                            Text("🏏 WC",
+                                                                            const Text("🏏 WC",
                                                                                 style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold))
                                                                         ],
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                       height:
                                                                           20),
 
                                                                   // Batting Stats
-                                                                  Text(
+                                                                  const Text(
                                                                       "Batting Stats",
                                                                       style: TextStyle(
                                                                           fontSize:
@@ -519,12 +527,12 @@ class HomeScreen extends StatelessWidget {
                                                                       Colors
                                                                           .blue),
 
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                       height:
                                                                           20),
 
                                                                   // Bowling Stats
-                                                                  Text(
+                                                                  const Text(
                                                                       "Bowling Stats",
                                                                       style: TextStyle(
                                                                           fontSize:
@@ -628,14 +636,14 @@ class _NewsTickerState extends State<NewsTicker> {
   }
 
   void _startAutoScroll() {
-    Timer.periodic(Duration(seconds: 3), (timer) {
+    Timer.periodic(const Duration(seconds: 3), (timer) {
       if (!mounted) return;
       setState(() {
         _currentIndex = (_currentIndex + 1) % widget.nuggets!.length;
       });
       _scrollController.animateTo(
         _currentIndex * 50.0,
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         curve: Curves.easeInOut,
       );
     });
@@ -652,11 +660,11 @@ class _NewsTickerState extends State<NewsTicker> {
         itemCount: widget.nuggets!.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Center(
               child: Text(
                 widget.nuggets![index],
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
@@ -679,14 +687,14 @@ Widget _buildStatBar(String label, double value, double maxValue, Color color) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("$label: ${value.toStringAsFixed(2)}",
-            style: TextStyle(fontSize: 16)),
-        SizedBox(height: 5),
+            style: const TextStyle(fontSize: 16)),
+        const SizedBox(height: 5),
         LinearPercentIndicator(
           lineHeight: 12.0,
           percent: percent,
           backgroundColor: Colors.grey.shade300,
           progressColor: color,
-          barRadius: Radius.circular(10),
+          barRadius: const Radius.circular(10),
         ),
       ],
     ),
