@@ -1,14 +1,13 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:sportstasks/application/controller.dart';
 import 'package:sportstasks/common/constant.dart';
 import 'package:sportstasks/domain/home_data.dart';
+import 'package:sportstasks/presentation/home_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Day 1 Cricket "),
+          title: Text("Day 2 Cricket "),
           leading: Builder(
             builder: (context) {
               return IconButton(
@@ -53,7 +52,6 @@ class HomeScreen extends StatelessWidget {
                 leading: Icon(Icons.calendar_today),
                 title: Text("Day 2"),
                 onTap: () {
-                  ct.fetchSecondScreenData();
                   Get.toNamed(Constant.secound_page);
                 },
               ),
@@ -82,14 +80,14 @@ class HomeScreen extends StatelessWidget {
                                       color: Colors.blue),
                                   SizedBox(width: 10),
                                   Text(
-                                      "${ct.dataModal?.matchdetail?.match?.number} - ${ct.dataModal?.matchdetail?.match?.league}",
+                                      "${ct.dataModal2?.matchdetail?.match?.number} - ${ct.dataModal2?.matchdetail?.match?.league}",
                                       style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
                               SizedBox(height: 10),
-                              Text("India vs New Zeeland",
+                              Text("South Africa  vs Pakistan",
                                   style: TextStyle(fontSize: 16)),
                               InkWell(
                                 onTap: () {
@@ -106,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                                   Icon(Icons.location_on, color: Colors.red),
                                   SizedBox(width: 5),
                                   Text(
-                                      "Venue: ${ct.dataModal?.matchdetail?.venue?.name}"),
+                                      "Venue: ${ct.dataModal2?.matchdetail?.venue?.name}"),
                                 ],
                               ),
                               Row(
@@ -115,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                                       color: Colors.green),
                                   SizedBox(width: 5),
                                   Text(
-                                      "Date: ${ct.dataModal?.matchdetail?.match?.date} at ${ct.dataModal?.matchdetail?.match?.time}"),
+                                      "Date: ${ct.dataModal2?.matchdetail?.match?.date} at ${ct.dataModal2?.matchdetail?.match?.time}"),
                                 ],
                               ),
                               Row(
@@ -123,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                                   Icon(Icons.wb_sunny, color: Colors.orange),
                                   SizedBox(width: 5),
                                   Text(
-                                      "Weather: ${ct.dataModal?.matchdetail?.weather}"),
+                                      "Weather: ${ct.dataModal2?.matchdetail?.weather}"),
                                 ],
                               ),
                               SizedBox(height: 10),
@@ -134,7 +132,7 @@ class HomeScreen extends StatelessWidget {
                                   SizedBox(
                                     width: Get.width / 1.5,
                                     child: Text(
-                                        "Result: ${ct.dataModal?.matchdetail?.result}",
+                                        "Result: ${ct.dataModal2?.matchdetail?.result}",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold)),
@@ -146,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                                   Icon(Icons.person, color: Colors.purple),
                                   SizedBox(width: 5),
                                   Text(
-                                      "Man of the Match: ${ct.dataModal?.matchdetail?.playerMatch}",
+                                      "Man of the Match: ${ct.dataModal2?.matchdetail?.playerMatch}",
                                       style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500)),
@@ -154,7 +152,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                               TabBar(
                                 controller: ct.tabController,
-                                tabs: ct.dataModal!.innings!
+                                tabs: ct.dataModal2!.innings!
                                     .map((inning) =>
                                         Tab(text: "Inning ${inning.number}"))
                                     .toList(),
@@ -163,7 +161,7 @@ class HomeScreen extends StatelessWidget {
                                 child: TabBarView(
                                   controller: ct.tabController,
                                   children:
-                                      ct.dataModal!.innings!.map((inning) {
+                                      ct.dataModal2!.innings!.map((inning) {
                                     return SingleChildScrollView(
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -230,7 +228,7 @@ class HomeScreen extends StatelessWidget {
                                                                       .index ==
                                                                   0) {
                                                                 playerData = ct
-                                                                        .dataModal!
+                                                                        .dataModal2!
                                                                         .teams!
                                                                         .teamA!
                                                                         .players![
@@ -238,7 +236,7 @@ class HomeScreen extends StatelessWidget {
                                                                         .batsman!];
                                                               } else {
                                                                 playerData = ct
-                                                                        .dataModal!
+                                                                        .dataModal2!
                                                                         .teams!
                                                                         .teamB!
                                                                         .players![
@@ -429,7 +427,7 @@ class HomeScreen extends StatelessWidget {
                                                                       .index ==
                                                                   0) {
                                                                 playerData = ct
-                                                                        .dataModal!
+                                                                        .dataModal2!
                                                                         .teams!
                                                                         .teamB!
                                                                         .players![
@@ -437,7 +435,7 @@ class HomeScreen extends StatelessWidget {
                                                                         .bowler!];
                                                               } else {
                                                                 playerData = ct
-                                                                        .dataModal!
+                                                                        .dataModal2!
                                                                         .teams!
                                                                         .teamA!
                                                                         .players![
@@ -593,14 +591,14 @@ class HomeScreen extends StatelessWidget {
                   //     child: ListView(
                   //       children: [
                   //         _buildSectionTitle("India's Innings 🇮🇳"),
-                  //         ..._buildNewsCards(ct.dataModal?.notes?.l1),
+                  //         ..._buildNewsCards(ct.dataModal2?.notes?.l1),
                   //         _buildSectionTitle("New Zealand's Innings 🇳🇿"),
-                  //         ..._buildNewsCards(ct.dataModal?.notes?.l2),
+                  //         ..._buildNewsCards(ct.dataModal2?.notes?.l2),
                   //       ],
                   //     ),
                   //   ),
                   // ),
-                  NewsTicker(nuggets: ct.dataModal?.nuggets),
+                  NewsTicker(nuggets: ct.dataModal2?.nuggets),
                 ],
               ),
       );
@@ -608,68 +606,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class NewsTicker extends StatefulWidget {
-  final List<String>? nuggets;
-  NewsTicker({required this.nuggets});
-
-  @override
-  _NewsTickerState createState() => _NewsTickerState();
-}
-
-class _NewsTickerState extends State<NewsTicker> {
-  late ScrollController _scrollController;
-  int _currentIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController = ScrollController();
-    _startAutoScroll();
-  }
-
-  void _startAutoScroll() {
-    Timer.periodic(Duration(seconds: 3), (timer) {
-      if (!mounted) return;
-      setState(() {
-        _currentIndex = (_currentIndex + 1) % widget.nuggets!.length;
-      });
-      _scrollController.animateTo(
-        _currentIndex * 50.0,
-        duration: Duration(seconds: 1),
-        curve: Curves.easeInOut,
-      );
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      color: Colors.black,
-      child: ListView.builder(
-        controller: _scrollController,
-        scrollDirection: Axis.horizontal,
-        itemCount: widget.nuggets!.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Center(
-              child: Text(
-                widget.nuggets![index],
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-// Function to build progress bar widget
 Widget _buildStatBar(String label, double value, double maxValue, Color color) {
   double percent = (value / maxValue).clamp(0.0, 1.0);
 
