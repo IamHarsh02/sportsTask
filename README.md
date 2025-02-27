@@ -46,12 +46,3 @@ dependencies:
   get: ^4.x.x
   dio: ^5.x.x
 
-Folder Structure
-
-lib/
-│-- infrastructure /           # repository for api calls 
-│-- application/           # business logic and fetch api calls logic 
-│-- domain/         # modals to store api responses 
-│-- presentation/   # UI components (screens, widgets)
-│-- main.dart       # Entry point of the app
-
