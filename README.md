@@ -2,7 +2,7 @@ Sports interactive task - cricket app
 
 Description
 
-project for Skill assessment teast .
+project for Skill assessment test .
 
 How to Run the Project
 
